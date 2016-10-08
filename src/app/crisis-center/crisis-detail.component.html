@@ -1,0 +1,15 @@
+<div *ngIf="!crisis">
+    <img src="../../assets/img/loading.gif">
+</div>
+<div *ngIf="crisis">
+    <h2>{{editName}} details!</h2>
+    <div>
+        <label>id: </label> {{crisis.id}}
+    </div>
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="editName" placeholder="name">
+    </div>
+    <button (click)="gotoCrisis()">Back</button>
+    <button (click)="save()">Save</button>
+</div>

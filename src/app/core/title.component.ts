@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '../shared/user.service';
+import { UserService } from './user.service';
 
 @Component({
     selector: 'app-title',
@@ -8,9 +8,10 @@ import { UserService } from '../shared/user.service';
 export class TitleComponent implements OnInit {
     @Input() public subtitle = '';
     public title = 'Angular Modules';
-    public user;
+    public user = '';
 
-    public constructor(private userService: UserService) {
+    public constructor(userService: UserService) {
+        this.user = userService.userName;
     }
 
     public ngOnInit() {

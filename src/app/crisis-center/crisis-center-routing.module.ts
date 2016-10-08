@@ -1,52 +1,31 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CrisisListComponent } from './crisis-list.component';
 import { CrisisDetailComponent } from './crisis-detail.component';
-import { CrisisCenterComponent } from './crisis-center.component';
-import { CrisisCenterHomeComponent } from './crisis-center-home.component';
-import { CanDeactivateGuard } from '../can-deactivate-guard.service';
-import { CrisisDetailResolve } from './crisis-detail-resolve.service';
+
+const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'list',
+        pathMatch: 'full'
+    },
+    {
+        path: 'list',
+        component: CrisisListComponent,
+    },
+    {
+        path: ':id',
+        component: CrisisDetailComponent,
+    },
+];
 
 @NgModule({
     imports: [
-        RouterModule.forChild([
-            {
-                path: '',
-                redirectTo: '/crisis-center',
-                pathMatch: 'full'
-            },
-            {
-                path: 'crisis-center',
-                component: CrisisCenterComponent,
-                children: [
-                    {
-                        path: '',
-                        component: CrisisListComponent,
-                        children: [
-                            {
-                                path: ':id',
-                                component: CrisisDetailComponent,
-                                canDeactivate: [CanDeactivateGuard],
-                                resolve: {
-                                    crisis: CrisisDetailResolve
-                                }
-                            },
-                            {
-                                path: '',
-                                component: CrisisCenterHomeComponent
-                            }
-                        ]
-                    }
-                ]
-            },
-        ])
+        RouterModule.forChild(routes)
     ],
     exports: [
         RouterModule
     ],
-    providers: [
-        CrisisDetailResolve
-    ]
 })
 export class CrisisCenterRoutingModule {
 }

@@ -1,9 +1,4 @@
-<div *ngIf="!crises">
-    <img src="../../assets/img/loading.gif">
+<h3 highlight>Crisis List</h3>
+<div *ngFor="let crisis of crises | async">
+    <a routerLink="{{'../' + crisis.id}}">{{crisis.id}} - {{crisis.name}}</a>
 </div>
-<ul class="items">
-    <li *ngFor="let crisis of crises" [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
-        <span class="badge">{{crisis.id}}</span>{{crisis.name}}
-    </li>
-</ul>
-<router-outlet></router-outlet>

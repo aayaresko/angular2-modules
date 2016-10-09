@@ -17,7 +17,7 @@ export class UserService {
         }
     }
 
-    public get userName() {
+    public getUserName() {
         const suffix = this.id > 1 ? `times ${this.id}` : '';
         return this.userName + suffix;
     }

@@ -10,7 +10,7 @@ export class HeroesComponent implements OnInit {
     public userName = '';
 
     public constructor(userService: UserService) {
-        this.userName = userService.userName;
+        this.userName = userService.getUserName();
     }
 
     public ngOnInit() {

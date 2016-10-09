@@ -11,7 +11,7 @@ export class TitleComponent implements OnInit {
     public user = '';
 
     public constructor(userService: UserService) {
-        this.user = userService.userName;
+        this.user = userService.getUserName();
     }
 
     public ngOnInit() {

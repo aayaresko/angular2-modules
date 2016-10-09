@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot } from '@angular/router';
-import { Crisis } from './crisis';
 import { CrisisService } from './crisis.service';
+import { Crisis } from './crisis';
 
 @Injectable()
 export class CrisisDetailResolve implements Resolve<Crisis> {

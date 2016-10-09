@@ -33,4 +33,5 @@ export class CoreModule {
             throw new Error('Core module is already loaded. Import it in the AppModule only');
         }
     }
+
 }

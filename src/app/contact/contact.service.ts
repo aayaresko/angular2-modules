@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contact';
 
-const CONTACTS: Contact[] = [
+const contactsList: Contact[] = [
     new Contact(21, 'Sam Spade'),
     new Contact(22, 'Nick Danger'),
     new Contact(23, 'Nancy Drew'),
 ];
 
-const FETCH_LATENCY = 500;
+const fetchLatency = 500;
 
 @Injectable()
 export class ContactService {
@@ -18,8 +18,8 @@ export class ContactService {
     public getContacts() {
         return new Promise<Contact[]>((resolve) => {
             setTimeout(() => {
-                resolve(CONTACTS);
-            }, FETCH_LATENCY);
+                resolve(contactsList);
+            }, fetchLatency);
         });
     }
 

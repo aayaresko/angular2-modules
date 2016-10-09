@@ -9,16 +9,16 @@ export class UserServiceConfig {
 @Injectable()
 export class UserService {
     public id = nextId++;
-    private _userName = 'Sherlock Holmes';
+    private userName = 'Sherlock Holmes';
 
     public constructor(@Optional() config: UserServiceConfig) {
         if (config) {
-            this._userName = config.userName;
+            this.userName = config.userName;
         }
     }
 
     public get userName() {
         const suffix = this.id > 1 ? `times ${this.id}` : '';
-        return this._userName + suffix;
+        return this.userName + suffix;
     }
 }

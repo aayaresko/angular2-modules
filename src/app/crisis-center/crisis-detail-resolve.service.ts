@@ -10,7 +10,7 @@ export class CrisisDetailResolve implements Resolve<Crisis> {
 
     public resolve(route: ActivatedRouteSnapshot): Promise<Crisis>|Promise<boolean> {
         let id = +route.params['id'];
-        return this.crisisService.findOneById(id).then(crisis => {
+        return this.crisisService.getCrisis(id).then(crisis => {
             if (crisis) {
                 return crisis;
             } else {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
 
-const HEROES: Hero[] = [
+const heroesList: Hero[] = [
     new Hero(11, 'Mr. Nice'),
     new Hero(12, 'Narco'),
     new Hero(13, 'Bombasto'),
@@ -10,15 +10,15 @@ const HEROES: Hero[] = [
     new Hero(16, 'RubberMan')
 ];
 
-const FETCH_LATENCY = 500;
+const fetchLatency = 500;
 
 @Injectable()
 export class HeroService {
     public getHeroes() {
         return new Promise<Hero[]>((resolve) => {
             setTimeout(() => {
-                resolve(HEROES);
-            }, FETCH_LATENCY);
+                resolve(heroesList);
+            }, fetchLatency);
         });
     }
 
